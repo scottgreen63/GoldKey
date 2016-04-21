@@ -61,9 +61,9 @@ namespace GoldKey.Models
     };
 
         // C part of CRUD
-        public static void CreateCustomer(Customer user)
+        public static void CreateCustomer(Customer customer)
         {
-            customers.Add(user);
+            customers.Add(customer);
         }
 
         // R part of CRUD
@@ -78,10 +78,10 @@ namespace GoldKey.Models
         }
 
         // U part of CRUD
-        public static void UpdateCustomer(int id, Customer user)
+        public static void UpdateCustomer(int id, Customer customer)
         {
             customers.Remove(customers.Find(x => x.CustomerID == id)); // Remove the previous User
-            customers.Add(user);
+            customers.Add(customer);
         }
 
         // D part of CRUD 

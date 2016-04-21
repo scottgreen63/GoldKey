@@ -29,5 +29,7 @@ namespace GoldKey.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<GoldKey.Models.Customer> Customers { get; set; }
     }
 }

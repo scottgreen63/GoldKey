@@ -1,33 +1,30 @@
-﻿using GoldKey.Models;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using GoldKey.Models;
+using Newtonsoft.Json;
 
 namespace GoldKey.Controllers
 {
-    [Authorize]
-    [Route("api/[controller]")]
-    public class CustomersController : ApiController
+    public class CustomerController : ApiController
     {
-        // GET api/values
+        // GET: api/Customer
         public IEnumerable<Customer> Get()
         {
             return Customers.GetAll();
         }
 
-        // GET api/values/5
-        //[HttpGet("{id}")]
+        // GET: api/Customer/5
         public Customer Get(int id)
         {
             return Customers.GetCustomer(id);
+            ;
         }
 
-        // POST api/values
-        [HttpPost]
+        // POST: api/Customer
         public void Post([FromBody]string value)
         {
             var customer = JsonConvert.DeserializeObject<Customer>(value); // Convert JSON to Users
@@ -35,9 +32,8 @@ namespace GoldKey.Controllers
 
         }
 
-        // PUT api/values/5
-        //[HttpPut("{id}")]
-
+        // PUT: api/Customer/5
+        
         public void Put(int id, [FromBody]string value)
         {
             var customer = JsonConvert.DeserializeObject<Customer>(value);
@@ -45,10 +41,11 @@ namespace GoldKey.Controllers
 
         }
 
-        // DELETE api/values/5
+        // DELETE: api/Customer/5
         public void Delete(int id)
         {
             Customers.DeleteCustomer(id);
+
         }
     }
 }
