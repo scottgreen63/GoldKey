@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldKeyWeb", "GoldKeyWeb\GoldKeyWeb.csproj", "{9DEEF379-EFC1-44C0-AD6B-CCF029984EA7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BC11CDAD-DC78-4B68-99D9-79C65DA77BC6} = {BC11CDAD-DC78-4B68-99D9-79C65DA77BC6}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldKeyLib", "GoldKeyLib\GoldKeyLib.csproj", "{89437519-7E5E-4CB4-BF73-3161836BF3E0}"
 EndProject
