@@ -14,26 +14,28 @@ namespace GoldKeyWeb.Controllers
     
     public class HomeController : ApplicationController 
     {
-       
-        
-     
+        GoldKeyLib.Entities.User _user = new GoldKeyLib.Entities.User();
+
+
+
         public ActionResult Index()
         {
-            var identity = (ClaimsIdentity)User.Identity;
-            User _user = new User();
-            _user.GetUser(Convert.ToInt32(identity.Claims.FirstOrDefault(x => x.Type.ToString(CultureInfo.InvariantCulture) == "NameIdentifier")));
-            //UserGroupMenuItems _usermenuitems = user.UserGroup.UserGroupMenu;
-            UserViewModel usermodel = new UserViewModel();
-            List<User> users = new List<GoldKeyLib.Entities.User>();
-                       
-            users.Add(_user);
-            
+            //var identity = (ClaimsIdentity)User.Identity;
+            //User _user = new User();
+            //_user.GetUser(Convert.ToInt32(identity.Claims.FirstOrDefault(x => x.Type.ToString(CultureInfo.InvariantCulture) == "NameIdentifier")));
+            ////UserGroupMenuItems _usermenuitems = user.UserGroup.UserGroupMenu;
+            //UserViewModel usermodel = new UserViewModel();
+            //List<User> users = new List<GoldKeyLib.Entities.User>();
 
-            usermodel.User = users;
-            usermodel.Menu = _user.UserGroup.UserGroupMenu;
-            
-            return View(usermodel);
-           
+            //users.Add(_user);
+            //usermodel.User = users;
+            //usermodel.Menu = _user.UserGroup.UserGroupMenu;
+            //return View(usermodel);
+
+            _user = Users.Find("HIKER");
+
+            return View(_user);
+
         }
 
         public ActionResult About()
