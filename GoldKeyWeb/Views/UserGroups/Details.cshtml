@@ -1,0 +1,58 @@
+﻿@model GoldKeyLib.Entities.UserGroup
+
+<div>
+    <h4>UserGroup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserGroupCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserGroupCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserGroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserGroupName)
+        </dd>
+
+    </dl>
+
+</div>
+<div>
+    <table class="table">
+        <tr>
+            <th>FormName</th><th>C</th><th>R</th><th>U</th><th>D</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.UserGroupPermissions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FormName)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.CanCreate, new { @disabled = "disabled" })
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.CanRead, new { @disabled = "disabled" })
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.CanUpdate, new { @disabled = "disabled" })
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.CanDelete, new { @disabled = "disabled" })
+                </td>
+            </tr>
+        }
+        </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { usergroupId = Model.UserGroupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,91 @@
+﻿@model GoldKeyLib.Entities.Customer
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <table border="1">
+        <tr>
+            <th>GoldKey Customer Detail</th>
+        </tr>
+        <tr>
+            <td>
+            <table class="table-condensed" border="1">
+                <tr>
+                    <th>CustomerID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address1</th>
+                    <th>Address2</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zipcode</th>
+                    <th>Contact Phone</th>
+                    <th>Contact Email</th>
+                    <th>Company Name</th>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.CustomerID)</td>
+                    <td>@Html.DisplayFor(model => model.FirstName)</td>
+                    <td>@Html.DisplayFor(model => model.LastName)</td>
+                    <td>@Html.DisplayFor(model => model.Address1)</td>
+                    <td>@Html.DisplayFor(model => model.Address2)</td>
+                    <td>@Html.DisplayFor(model => model.City)</td>
+                    <td>@Html.DisplayFor(model => model.State)</td>
+                    <td>@Html.DisplayFor(model => model.ZipCode)</td>
+                    <td>@Html.DisplayFor(model => model.ContactPhone)</td>
+                    <td>@Html.DisplayFor(model => model.ContactEmail)</td>
+                    <td>@Html.DisplayFor(model => model.CompanyName)</td>
+                </tr>
+            </table>
+            
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    @Html.ActionLink("Add", "Create", "Vehicles", null, null)
+    <table class="table-striped" border="1">
+        <tr>
+            <th>VehicleID</th>
+            <th>Year</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Trim</th>
+            <th>Condition</th>
+            <th>Mileage</th>
+            <th>VINumber</th>
+            <th>Note</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.CustomerVehicles)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.VehicleID)</td>
+                <td>@Html.DisplayFor(modelItem => item.Year)</td>
+                <td>@Html.DisplayFor(modelItem => item.Make)</td>
+                <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                <td>@Html.DisplayFor(modelItem => item.Color)</td>
+                <td>@Html.DisplayFor(modelItem => item.Trim)</td>
+                <td>@Html.DisplayFor(modelItem => item.Condition)</td>
+                <td>@Html.DisplayFor(modelItem => item.Mileage)</td>
+                <td>@Html.DisplayFor(modelItem => item.VINumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Note)</td>
+                <td>
+                    @Html.ActionLink("Edit","Edit", "Vehicles", new { vehicleid = item.VehicleID },null) |
+                    @Html.ActionLink("Details", "Details", "Vehicles", new { vehicleid = item.VehicleID },null) |
+                    @Html.ActionLink("Delete", "Delete", "Vehicles", new { vehicleid = item.VehicleID },null)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+   
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { customerid = Model.CustomerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

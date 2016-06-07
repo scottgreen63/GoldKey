@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GoldKeyLib.Entities.UserGroup>
+
+
+<script language="javascript">
+    $(document).ready(function () {
+    // THIS IS FOR HIDE ALL DETAILS ROW
+    $(".SUBDIV table tr:not(:first-child)").not("tr tr").hide();
+    $(".SUBDIV .btncolexp").click(function () {
+    $(this).closest('tr').next('tr').toggle();
+    //this is for change img of btncolexp button
+            if ($(this).attr('class').toString() == "btncolexp collapse") {
+                $(this).addClass('expand');
+                $(this).removeClass('collapse');
+            }
+            else {
+                $(this).removeClass('expand');
+                $(this).addClass('collapse');
+            }
+        });
+    });
+</script>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserGroupCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserGroupName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserGroupCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserGroupName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { usergroupid = item.UserGroupId }) |
+            @Html.ActionLink("Details", "Details", new { usergroupid = item.UserGroupId }) |
+            @Html.ActionLink("Delete", "Delete", new { usergroupid = item.UserGroupId })
+        </td>
+    </tr>
+}
+
+</table>
+
+

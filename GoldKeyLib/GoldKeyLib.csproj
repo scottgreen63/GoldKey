@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89437519-7E5E-4CB4-BF73-3161836BF3E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldKeyLib</RootNamespace>
+    <AssemblyName>GoldKeyLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\CustomerActivity.cs" />
+    <Compile Include="Entities\CustomerActivityType.cs" />
+    <Compile Include="Entities\CustomerActivityTypes.cs" />
+    <Compile Include="Entities\CustomerServicePackages.cs" />
+    <Compile Include="Entities\AirlineCarrierFlights.cs" />
+    <Compile Include="Entities\AirlineCarrier.cs" />
+    <Compile Include="Entities\AirlineCarrierFlight.cs" />
+    <Compile Include="Entities\AirlineCarriers.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerCarrierFlight.cs" />
+    <Compile Include="Entities\Customers.cs" />
+    <Compile Include="Entities\CustomerServicePackage.cs" />
+    <Compile Include="Entities\CustomerServicePackageDetail.cs" />
+    <Compile Include="Entities\VehicleActivity.cs" />
+    <Compile Include="Entities\Service.cs" />
+    <Compile Include="Entities\RecordManagement\AuditLog.cs" />
+    <Compile Include="Entities\RecordManagement\AuditLogEntry.cs" />
+    <Compile Include="Entities\Base\BaseEntity.cs" />
+    <Compile Include="Entities\Base\BaseEntityList.cs" />
+    <Compile Include="Entities\Exceptions\ExceptionHandler.cs" />
+    <Compile Include="Entities\RecordManagement\RecordLock.cs" />
+    <Compile Include="Entities\RecordManagement\RecordLocks.cs" />
+    <Compile Include="Entities\Security\Accounting\User.cs" />
+    <Compile Include="Entities\Security\Accounting\UserGroup.cs" />
+    <Compile Include="Entities\Security\Accounting\UserGroups.cs" />
+    <Compile Include="Entities\Security\Accounting\UserHistory.cs" />
+    <Compile Include="Entities\Security\Accounting\UserHistoryEntry.cs" />
+    <Compile Include="Entities\Security\Accounting\Users.cs" />
+    <Compile Include="Entities\Security\Crypto.cs" />
+    <Compile Include="Entities\ServicePackage.cs" />
+    <Compile Include="Entities\Services.cs" />
+    <Compile Include="Entities\Validation\Validation.cs" />
+    <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Entities\VehicleActivityType.cs" />
+    <Compile Include="Entities\VehicleImage.cs" />
+    <Compile Include="Entities\VehicleImages.cs" />
+    <Compile Include="Entities\Vehicles.cs" />
+    <Compile Include="Interfaces\IAirlineCarrier.cs" />
+    <Compile Include="Interfaces\IAirlineCarrierFlight.cs" />
+    <Compile Include="Interfaces\ICustomer.cs" />
+    <Compile Include="Interfaces\ICustomerActivity.cs" />
+    <Compile Include="Interfaces\ICustomerActivityType.cs" />
+    <Compile Include="Interfaces\ICustomers.cs" />
+    <Compile Include="Interfaces\ICustomerServicePackage.cs" />
+    <Compile Include="Interfaces\ICustomerServicePackageDetail.cs" />
+    <Compile Include="Entities\Base\IBaseEntityList.cs" />
+    <Compile Include="Interfaces\ICustomerCarrierFlight.cs" />
+    <Compile Include="Interfaces\ICustomerVehicle.cs" />
+    <Compile Include="Interfaces\IVehicleActivity.cs" />
+    <Compile Include="Interfaces\IGKLocation.cs" />
+    <Compile Include="Interfaces\IGKLocationType.cs" />
+    <Compile Include="Interfaces\IGKService.cs" />
+    <Compile Include="Interfaces\IGKServicePackage.cs" />
+    <Compile Include="Interfaces\IVehicleActivityType.cs" />
+    <Compile Include="Interfaces\IVehicle.cs" />
+    <Compile Include="Interfaces\IVehicleImage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\ServicePackages.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GoldKeyDALib\GoldKeyDALib.csproj">
+      <Project>{bc11cdad-dc78-4b68-99d9-79c65da77bc6}</Project>
+      <Name>GoldKeyDALib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "dnx451": {
+      "bin": {
+        "assembly": "../../bin/Debug/GoldKeyLib.dll",
+        "pdb": "../../bin/Debug/GoldKeyLib.pdb"
+      },
+      "dependencies": {
+        "GoldKeyDALib": "1.0.0-*"
+      }
+    }
+  }
+}

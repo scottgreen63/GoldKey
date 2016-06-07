@@ -1,0 +1,48 @@
+﻿@using GoldKeyLib.Entities
+@model UserGroupMenuItems
+<style>
+    ul#menu li ul {
+              height: auto;
+              padding: 0px;
+              margin: 0px;
+              border: 0px;
+              position: absolute;
+              width: 225px;
+              z-index: 200;
+
+    }
+    
+</style>
+@if (Model != null && Model.Count > 4)
+{
+<div class="navbar-collapse collapse">
+        <ul id="menu" class="nav navbar-nav">
+            @foreach (var parentMenu in Model.Where(m => m.UserMenuUnderId == 0).OrderBy(m => m.UserMenuOrder).ToList())
+            {
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">@parentMenu.UserMenuCaption<span class="caret"></span></a>
+                    
+                    <ul class="dropdown-menu">
+                        @{
+                            foreach (var MenuItem in Model.Where(m => m.UserMenuUnderId == parentMenu.UserMenuId).OrderBy(m => m.UserMenuOrder).ToList())
+                            {
+                                         <li>@Html.ActionLink(@MenuItem.UserMenuCaption, @MenuItem.UserMenuShortCut, @MenuItem.UserMenuCaption,null,null)</li>
+                            }
+
+                        }
+                    </ul>
+
+                </li>
+             }
+        </ul>
+        
+       </div>
+}
+else
+{
+<div class="navbar-collapse collapse">
+    <ul class="nav pull-right">
+        <li>@Html.ActionLink("LogIn", "Login", "Account")</li>
+    </ul>
+    </div>
+}
