@@ -32,7 +32,7 @@ namespace GoldKeyWeb.Controllers
             //usermodel.Menu = _user.UserGroup.UserGroupMenu;
             //return View(usermodel);
 
-            _user = Users.Find("HIKER");
+            _user = GoldKeyLib.Entities.Users.Find("HIKER");
 
             return View(_user);
 
