@@ -5,6 +5,8 @@ using System.Web.Security;
 using GoldKeyWeb.Controllers;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
+using System.Collections.Generic;
+using System.ComponentModel;
 //using Microsoft.AspNet.Identity;
 
 namespace Security.Controllers
@@ -103,7 +105,7 @@ namespace Security.Controllers
         public ActionResult Login(User user)
         {
             User _user = new User();
-            _user = Users.Find(user.UserName);
+            _user = Users.Find(user.UserName.ToUpper());
             bool goodtogo = true; //_user.AuthenticateUser(user.UserName, user.UserPassword);
 
             if (_user != null && goodtogo)
@@ -121,7 +123,13 @@ namespace Security.Controllers
                 },DefaultAuthenticationTypes.ApplicationCookie);
 
               HttpContext.GetOwinContext().Authentication.SignIn(new Microsoft.Owin.Security.AuthenticationProperties { IsPersistent = false }, ident);
-                return RedirectToAction("Index", "Home", null); // auth succeed 
+                GoldKeyWeb.Models.UserViewModel userviewmodel = new GoldKeyWeb.Models.UserViewModel();
+                List<User> users = new List<User>();
+                users.Add(user);
+                userviewmodel.Menu = user.UserGroup.UserGroupMenu;
+                userviewmodel.User = users;
+
+                return RedirectToAction("Index", "Home", userviewmodel); // auth succeed 
             }
 
             else
